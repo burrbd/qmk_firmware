@@ -236,23 +236,6 @@ void go_assign_var(qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void go_meth(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count >= 3) {
-      SEND_STRING("func () () {");
-      register_code(KC_ENT);
-      unregister_code(KC_ENT);
-      register_code(KC_UP);
-      unregister_code(KC_UP);
-      for (int i = 0; i < 4; ++i) {
-        register_code(KC_RIGHT);
-        unregister_code(KC_RIGHT);
-      }
-    } else {
-      register_code(KC_M);
-      unregister_code(KC_M);
-    }
-}
-
 // Tap dance
 qk_tap_dance_action_t tap_dance_actions[2] = {
   [TD_ESC_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
